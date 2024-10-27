@@ -37,7 +37,7 @@ app.use(xss());
 app.use(hpp());
 
 // Specify your frontend origin
-const allowedOrigins = ['*'];
+const allowedOrigins = '*';
 
 app.use(cors({
     origin: allowedOrigins,
