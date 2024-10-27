@@ -37,7 +37,7 @@ app.use(xss());
 app.use(hpp());
 
 // Specify your frontend origin
-const allowedOrigins = ['https://auth-frontend-ev412aoqh-abrehamgebremedhins-projects.vercel.app/', 'http://localhost:3000'];
+const allowedOrigins = ['https://auth-frontend-theta.vercel.app', 'http://localhost:3000'];
 
 app.use(cors({
     origin: allowedOrigins,
