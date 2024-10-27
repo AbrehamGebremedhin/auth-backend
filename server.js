@@ -37,7 +37,7 @@ app.use(xss());
 app.use(hpp());
 
 // Specify your frontend origin
-const allowedOrigins = ['https://auth-frontend-ns448v832-abrehamgebremedhins-projects.vercel.app', 'https://radiant-shortbread-9fe958.netlify.app'];
+const allowedOrigins = ['https://auth-frontend-ns448v832-abrehamgebremedhins-projects.vercel.app', 'https://radiant-shortbread-9fe958.netlify.app', 'http://localhost:3000'];
 
 app.use(cors({
     origin: allowedOrigins,
