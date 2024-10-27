@@ -37,7 +37,7 @@ app.use(xss());
 app.use(hpp());
 
 // Specify your frontend origin
-const allowedOrigins = '*';
+const allowedOrigins = 'https://auth-frontend-ns448v832-abrehamgebremedhins-projects.vercel.app';
 
 app.use(cors({
     origin: allowedOrigins,
