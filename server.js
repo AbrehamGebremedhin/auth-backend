@@ -1,7 +1,10 @@
 const path = require('path');
 const express = require('express');
 const dotenv = require('dotenv');
-const morgan = require('morgan');
+const mongoSanitize = require('express-mongo-sanitize');
+const helmet = require('helmet');
+const xss = require('xss-clean');
+const hpp = require('hpp');
 const cookieParser = require('cookie-parser')
 const cors = require('cors');
 const bodyparser = require('body-parser')
@@ -21,8 +24,25 @@ app.use(express.json());
 app.use(bodyparser.urlencoded({extended:false}))
 app.use(bodyparser.json())
 
-// Enable CORS
-app.use(cors());
+// Sanitize data
+app.use(mongoSanitize());
+
+// Set security headers
+app.use(helmet());
+
+// Prevent XSS attacks
+app.use(xss());
+
+// Prevent http param pollution
+app.use(hpp());
+
+// Specify your frontend origin
+const allowedOrigins = ['https://auth-frontend-theta.vercel.app'];
+
+app.use(cors({
+    origin: allowedOrigins,
+    credentials: true, // Allow cookies to be sent
+}));
 
 app.use(cookieParser({
     debug: true
